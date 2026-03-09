@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login | Event Decor</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #d2691e, #f4a460);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* LOGIN CARD */
+        .login-container {
+            background: #fff;
+            width: 360px;
+            padding: 40px 35px;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-container h2 {
+            margin-bottom: 10px;
+            color: #d2691e;
+            font-weight: 700;
+        }
+
+        .login-container p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* INPUT GROUP */
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 12px 12px 38px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #d2691e;
+            outline: none;
+            box-shadow: 0 0 6px rgba(210,105,30,0.3);
+        }
+
+        /* BUTTON */
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #d2691e;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #a0522d;
+            transform: scale(1.03);
+        }
+
+        /* FOOTER TEXT */
+        .footer-text {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 400px) {
+            .login-container {
+                width: 90%;
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <p>Secure access to dashboard</p>
+
+        <form method="POST">
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" placeholder="Enter admin password" required>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="footer-text">
+            © 2026 Event Decor Planner
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Decor Details</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Event Decor</div>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div style="padding:40px; text-align:center">
+  <h2>{{ decor_type }} Decoration</h2>
+  <p>Theme-based decoration, balloons, flowers, lighting and custom designs.</p>
+  <p><b>Starting Price:</b> ₹{{ price }}</p>
+</div>
+
+</body>
+</html>

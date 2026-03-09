@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Event Decor</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+        th { background: #333; color: white; }
+        img { width: 80px; border-radius: 8px; }
+        a { text-decoration: none; margin: 5px; color: #D2691E; font-weight: bold; }
+        a:hover { color: #a0522d; }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <!-- BOOKINGS TABLE -->
+    <h2>Bookings</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Event Type</th>
+            <th>Date</th>
+            <th>Message</th>
+            <th>Decor</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        {% for b in bookings %}
+        <tr>
+            <td>{{ b.id }}</td>
+            <td>{{ b.name }}</td>
+            <td>{{ b.phone }}</td>
+            <td>{{ b.address }}</td>
+            <td>{{ b.email }}</td>
+            <td>{{ b.event_type }}</td>
+            <td>{{ b.event_date }}</td>
+            <td>{{ b.message }}</td>
+            <td>
+                {% if b.decor_image %}
+                <img src="{{ url_for('static', filename=b.decor_image) }}" alt="Decor Image">
+                {% else %}
+                N/A
+                {% endif %}
+            </td>
+            <td>₹ {{ b.package_price or 0 }}</td>
+            <td>{{ b.status }}</td>
+            <td>
+                {% if b.status == 'Pending' %}
+                    <a href="{{ url_for('confirm_booking', booking_id=b.id) }}">✅ Confirm</a>
+                {% endif %}
+                <a href="{{ url_for('delete_booking', booking_id=b.id) }}" onclick="return confirm('Delete this booking?')">❌ Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- CONTACTS TABLE -->
+    <h2>Contact Messages</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+            <th>Actions</th>
+        </tr>
+        {% for c in contacts %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.email }}</td>
+            <td>{{ c.phone }}</td>
+            <td>{{ c.message }}</td>
+            <td>
+                <a href="{{ url_for('delete_contact', contact_id=c.id) }}" onclick="return confirm('Delete this message?')">❌ Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ url_for('admin_logout') }}">Logout</a>
+</body>
+</html>

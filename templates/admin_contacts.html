@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Messages</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+        th { background: #333; color: white; }
+        a { text-decoration: none; margin: 5px; }
+        h1 { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>Contact Messages</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Message</th>
+        <th>Received At</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for c in contacts %}
+    <tr>
+        <td>{{ c.id }}</td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.phone }}</td>
+        <td>{{ c.message }}</td>
+        <td>{{ c.created_at }}</td>
+        <td>
+            <a href="{{ url_for('delete_contact', contact_id=c.id) }}" onclick="return confirm('Delete this message?')">❌ Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="{{ url_for('admin_logout') }}">Logout</a>
+
+</body>
+</html>

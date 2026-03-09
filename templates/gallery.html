@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery - Event Decor</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 15px 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 32px;
+            color: #D2691E;
+        }
+        .navbar nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .navbar nav a:hover { color: #D2691E; }
+
+        /* PAGE HEADER */
+        .content h1 {
+            text-align: center;
+            margin: 50px 0 30px 0;
+            font-family: 'Great Vibes', cursive;
+            font-size: 40px;
+            color: #D2691E;
+        }
+
+        /* GALLERY GRID */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin: 15px 0 5px 0;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #D2691E;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 25px;
+            background: #D2691E;
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background: #a0522d;
+            transform: scale(1.05);
+        }
+
+        /* CATEGORY BADGES */
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #D2691E;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        /* FOOTER */
+        .footer { background: #333; color: #bbb; padding: 60px 20px 30px 20px; font-size: 14px; }
+        .footer h4 { color: white; margin-bottom: 15px; font-size: 18px; }
+        .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; gap: 30px; }
+        .footer-column { flex: 1; min-width: 200px; }
+        .footer-column ul { list-style: none; padding: 0; }
+        .footer-column ul li { margin-bottom: 10px; }
+        .footer-column ul li a { color: #bbb; text-decoration: none; transition: 0.3s; }
+        .footer-column ul li a:hover { color: #D2691E; }
+        .social-icons { margin-top: 20px; }
+        .social-icons a { margin: 0 10px; color: white; font-size: 28px; transition: transform 0.3s, color 0.3s; }
+        .social-icons a:hover { transform: scale(1.2); }
+        .social-icons a.whatsapp:hover { color: #25D366; }
+        .social-icons a.facebook:hover { color: #3b5998; }
+        .social-icons a.instagram:hover { color: #E1306C; }
+        .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid #555; padding-top: 15px; color: #888; }
+
+        /* Responsive */
+        @media(max-width:768px){
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">Event Decor</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('booking') }}">Book</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('admin_login') }}">Admin</a>
+        </nav>
+    </header>
+
+    <!-- PAGE TITLE -->
+    <section class="content">
+        <h1>Our Decorations</h1>
+
+        <div class="gallery-grid">
+
+            <!-- BIRTHDAY -->
+            <div class="card">
+                <span class="category-badge">Birthday</span>
+                <img src="{{ url_for('static', filename='uploads/images/birthday1.jpg') }}">
+                <h3>Birthday Decoration 1</h3>
+                <p>₹8000</p>
+                <a href="{{ url_for('booking', decor_image='uploads/images/birthday1.jpg', package_price=8000) }}" class="btn">Book Now</a>
+            </div>
+
+            <div class="card">
+                <span class="category-badge">Birthday</span>
+                <img src="{{ url_for('static', filename='uploads/images/birthday2.jpg') }}">
+                <h3>Birthday Decoration 2</h3>
+                <p>₹9000</p>
+                <a href="{{ url_for('booking', decor_image='uploads/images/birthday2.jpg', package_price=9000) }}" class="btn">Book Now</a>
+            </div>
+
+            <!-- WEDDING -->
+            <div class="card">
+                <span class="category-badge">Wedding</span>
+                <img src="{{ url_for('static', filename='uploads/images/wedding1.jpg') }}">
+                <h3>Wedding Decoration 1</h3>
+                <p>₹25000</p>
+                <a href="{{ url_for('booking', decor_image='uploads/images/wedding1.jpg', package_price=25000) }}" class="btn">Book Now</a>
+            </div>
+
+            <div class="card">
+                <span class="category-badge">Wedding</span>
+                <img src="{{ url_for('static', filename='uploads/images/wedding2.jpg') }}">
+                <h3>Wedding Decoration 2</h3>
+                <p>₹27000</p>
+                <a href="{{ url_for('booking', decor_image='uploads/images/wedding2.jpg', package_price=27000) }}" class="btn">Book Now</a>
+            </div>
+
+            <!-- ENGAGEMENT -->
+            <div class="card">
+                <span class="category-badge">Engagement</span>
+                <img src="{{ url_for('static', filename='uploads/images/engagement1.jpg') }}">
+                <h3>Engagement Decoration 1</h3>
+                <p>₹15000</p>
+                <a href="{{ url_for('booking', decor_image='uploads/images/engagement1.jpg', package_price=15000) }}" class="btn">Book Now</a>
+            </div>
+
+            <div class="card">
+                <span class="category-badge">Engagement</span>
+                <img src="{{ url_for('static', filename='uploads/images/engagement2.jpg') }}">
+                <h3>Engagement Decoration 2</h3>
+                <p>₹17000</p>
+                <a href="{{ url_for('booking', decor_image='uploads/images/engagement2.jpg', package_price=17000) }}" class="btn">Book Now</a>
+            </div>
+
+            <!-- PARTY -->
+            <div class="card">
+                <span class="category-badge">Party</span>
+                <img src="{{ url_for('static', filename='uploads/images/party1.jpg') }}">
+                <h3>Party Decoration 1</h3>
+                <p>₹10000</p>
+                <a href="{{ url_for('booking', decor_image='uploads/images/party1.jpg', package_price=10000) }}" class="btn">Book Now</a>
+            </div>
+
+            <div class="card">
+                <span class="category-badge">Party</span>
+                <img src="{{ url_for('static', filename='uploads/images/party2.jpg') }}">
+                <h3>Party Decoration 2</h3>
+                <p>₹12000</p>
+                <a href="{{ url_for('booking', decor_image='uploads/images/party2.jpg', package_price=12000) }}" class="btn">Book Now</a>
+            </div>
+
+            <!-- BABY SHOWER -->
+            <div class="card">
+                <span class="category-badge">Baby Shower</span>
+                <img src="{{ url_for('static', filename='uploads/images/baby1.jpg') }}">
+                <h3>Baby Shower Decoration 1</h3>
+                <p>₹9000</p>
+                <a href="{{ url_for('booking', decor_image='uploads/images/baby1.jpg', package_price=9000) }}" class="btn">Book Now</a>
+            </div>
+
+            <div class="card">
+                <span class="category-badge">Baby Shower</span>
+                <img src="{{ url_for('static', filename='uploads/images/baby2.jpg') }}">
+                <h3>Baby Shower Decoration 2</h3>
+                <p>₹10000</p>
+                <a href="{{ url_for('booking', decor_image='uploads/images/baby2.jpg', package_price=10000) }}" class="btn">Book Now</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER (reuse from about.html) -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Terms & Conditions</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cancellation Policy</a></li>
+                    <li><a href="#">Booking Terms</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Top Cities</h4>
+                <ul>
+                    <li>Mumbai</li>
+                    <li>Delhi</li>
+                    <li>Bangalore</li>
+                    <li>Chennai</li>
+                    <li>Kolkata</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Client Reviews</h4>
+                <div class="client-review">"Amazing decor! Made our wedding so special." – Priya</div>
+                <div class="client-review">"Professional and creative team. Highly recommend!" – Rohan</div>
+                <div class="client-review">"Birthday party was a hit thanks to Event Decor." – Ananya</div>
+            </div>
+            <div class="footer-column">
+                <h4>Connect with Us</h4>
+                <div class="social-icons">
+                    <a href="https://wa.me/919876543210" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/yourpage" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/yourpage" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Event Decor Planner. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

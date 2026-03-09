@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Sangeetha's Event Decor</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        /* ---------------- GLOBAL ---------------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #fdfdfd;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /* ---------------- NAVBAR ---------------- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+        }
+
+        .navbar nav a {
+            margin-left: 25px;
+            font-weight: 500;
+            color: #333;
+            transition: 0.3s;
+        }
+        .navbar nav a:hover {
+            color: #D2691E;
+            transform: scale(1.05);
+        }
+
+        /* ---------------- SITE TITLE ---------------- */
+        .site-title-section {
+            text-align: center;
+            padding: 80px 20px 60px 20px;
+            background: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05));
+        }
+        .site-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 56px;
+            color: #D2691E;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+        .site-subtitle {
+            font-size: 20px;
+            color: #555;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 2s 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* ---------------- VIDEO SECTIONS ---------------- */
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        .video-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-section .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .video-section h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .video-section p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background: #D2691E;
+            padding: 12px 30px;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #a0522d;
+            transform: scale(1.05);
+        }
+
+        /* ---------------- FOOTER ---------------- */
+        footer {
+            background: #333;
+            color: #bbb;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ---------------- RESPONSIVE ---------------- */
+        @media(max-width:768px){
+            .site-title {
+                font-size: 42px;
+            }
+            .video-section {
+                height: 300px;
+            }
+            .video-section h1 {
+                font-size: 28px;
+            }
+            .video-section p {
+                font-size: 16px;
+            }
+            .navbar {
+                padding: 15px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='uploads/images/logo.png') }}" alt="Logo">
+        </div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('booking') }}">Book</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+
+    <!-- SITE TITLE -->
+    <section class="site-title-section">
+        <h2 class="site-title">Sangeetha's Event Decor Idea Planner</h2>
+        <p class="site-subtitle">Elegant • Creative • Memorable</p>
+    </section>
+
+    <!-- VIDEO SECTIONS -->
+    <section class="video-section">
+        <video autoplay muted loop playsinline>
+            <source src="{{ url_for('static', filename='uploads/videos/wedding.mp4') }}" type="video/mp4">
+        </video>
+        <div class="overlay">
+            <h1>Wedding Decoration</h1>
+            <p>Elegant & Luxury Wedding Setups</p>
+            <a href="{{ url_for('gallery') }}" class="btn">View Gallery</a>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <video autoplay muted loop playsinline>
+            <source src="{{ url_for('static', filename='uploads/videos/birthday.mp4') }}" type="video/mp4">
+        </video>
+        <div class="overlay">
+            <h1>Birthday Decoration</h1>
+            <p>Colorful & Creative Party Themes</p>
+            <a href="{{ url_for('gallery') }}" class="btn">View Gallery</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2026 Sangeetha's Event Decor Planner. All rights reserved.
+    </footer>
+
+</body>
+</html>

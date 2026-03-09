@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About - Event Decor</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <!-- Custom Styles -->
+    <style>
+        body { margin: 0; font-family: 'Roboto', sans-serif; color: #333; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 15px 50px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .navbar .logo { font-family: 'Great Vibes', cursive; font-size: 32px; color: #D2691E; }
+        .navbar nav a { margin-left: 25px; text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
+        .navbar nav a:hover { color: #D2691E; }
+
+        /* ABOUT SECTION */
+        .about-section { background: #f8f9fa; padding: 80px 20px; }
+        .about-container { display: flex; align-items: center; gap: 50px; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; }
+        .about-text { flex: 1; }
+        .about-text h1 { font-family: 'Great Vibes', cursive; font-size: 48px; color: #D2691E; margin-bottom: 20px; }
+        .about-text p { font-size: 18px; line-height: 1.7; margin-bottom: 20px; }
+        .about-text .btn { display: inline-block; padding: 14px 32px; background: #D2691E; color: white; font-weight: bold; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; text-decoration: none; }
+        .about-text .btn:hover { background: #a0522d; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .about-image { flex: 1; text-align: center; }
+        .about-image img { width: 100%; max-width: 500px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+        /* SERVICES */
+        .services { background: #fff; padding: 60px 20px; text-align: center; }
+        .services h2 { font-family: 'Great Vibes', cursive; font-size: 40px; color: #D2691E; margin-bottom: 40px; }
+        .service-cards { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        .service-card { background: #f8f9fa; padding: 30px; border-radius: 15px; width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card i { font-size: 36px; color: #D2691E; margin-bottom: 15px; }
+        .service-card h3 { font-size: 22px; margin-bottom: 10px; }
+        .service-card p { font-size: 16px; line-height: 1.5; }
+
+        /* WHY CHOOSE US */
+        .why-choose { background: #f8f9fa; padding: 60px 20px; text-align: center; }
+        .why-choose h2 { font-family: 'Great Vibes', cursive; font-size: 40px; color: #D2691E; margin-bottom: 40px; }
+        .why-cards { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        .why-card { background: #fff; padding: 25px; border-radius: 15px; width: 250px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .why-card:hover { transform: translateY(-5px); }
+        .why-card i { font-size: 32px; color: #D2691E; margin-bottom: 10px; }
+        .why-card h4 { font-size: 18px; margin-bottom: 10px; font-weight: 600; }
+        .why-card p { font-size: 14px; }
+
+        /* CLIENT REVIEWS */
+        .reviews { background: #fff; padding: 60px 20px; text-align: center; }
+        .reviews h2 { font-family: 'Great Vibes', cursive; font-size: 40px; color: #D2691E; margin-bottom: 40px; }
+        .review-card { background: #f8f9fa; padding: 25px; border-radius: 15px; width: 300px; margin: 10px; display: inline-block; box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-style: italic; }
+
+        /* FOOTER PROFESSIONAL */
+        .footer { background: #333; color: #bbb; padding: 60px 20px 30px 20px; font-size: 14px; }
+        .footer h4 { color: white; margin-bottom: 15px; font-size: 18px; }
+        .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; gap: 30px; }
+        .footer-column { flex: 1; min-width: 200px; }
+        .footer-column ul { list-style: none; padding: 0; }
+        .footer-column ul li { margin-bottom: 10px; }
+        .footer-column ul li a { color: #bbb; text-decoration: none; transition: 0.3s; }
+        .footer-column ul li a:hover { color: #D2691E; }
+        .social-icons { margin-top: 20px; }
+        .social-icons a { margin: 0 10px; color: white; font-size: 28px; transition: transform 0.3s, color 0.3s; }
+        .social-icons a:hover { transform: scale(1.2); }
+        .social-icons a.whatsapp:hover { color: #25D366; }
+        .social-icons a.facebook:hover { color: #3b5998; }
+        .social-icons a.instagram:hover { color: #E1306C; }
+        .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid #555; padding-top: 15px; color: #888; }
+
+        /* Responsive */
+        @media(max-width:768px){
+            .about-container, .service-cards, .why-cards, .footer-container { flex-direction: column; text-align: center; }
+            .about-image img { max-width: 80%; margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">Event Decor</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('booking') }}">Book</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('admin_login') }}">Admin</a>
+        </nav>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h1>About Us</h1>
+                <p>At Event Decor Planner, we believe every celebration deserves elegance, creativity, and attention to detail. We transform spaces into magical experiences for weddings, birthdays, corporate events, and baby showers.</p>
+                <p>With years of expertise and a team of passionate designers, we ensure your vision comes alive, leaving unforgettable memories for you and your guests.</p>
+                <a href="{{ url_for('gallery') }}" class="btn">View Our Work</a>
+            </div>
+            <div class="about-image">
+                <img src="{{ url_for('static', filename='uploads/images/about_new.jpg') }}" alt="Our Event Decor Work">
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <i class="fas fa-heart"></i>
+                <h3>Weddings</h3>
+                <p>Elegant wedding decor to create the perfect romantic ambiance for your special day.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-birthday-cake"></i>
+                <h3>Birthdays</h3>
+                <p>Fun and vibrant birthday decorations that make every party unforgettable.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Corporate Events</h3>
+                <p>Professional setups for corporate events, launches, and award ceremonies.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-baby"></i>
+                <h3>Baby Showers</h3>
+                <p>Charming and delicate baby shower decor that celebrates new beginnings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose">
+        <h2>Why Choose Us?</h2>
+        <div class="why-cards">
+            <div class="why-card">
+                <i class="fas fa-star"></i>
+                <h4>Expert Team</h4>
+                <p>Professional decorators with years of experience in designing events.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-lightbulb"></i>
+                <h4>Creative Ideas</h4>
+                <p>Innovative concepts and unique designs tailored for your event.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-thumbs-up"></i>
+                <h4>Trusted Services</h4>
+                <p>Thousands of satisfied clients trust us for memorable celebrations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENT REVIEWS -->
+    <section class="reviews">
+        <h2>Client Reviews</h2>
+        <div class="review-card">"Amazing decor! Made our wedding so special." – Priya</div>
+        <div class="review-card">"Professional and creative team. Highly recommend!" – Rohan</div>
+        <div class="review-card">"Birthday party was a hit thanks to Event Decor." – Ananya</div>
+        <div class="review-card">"Decor was beyond expectations. Loved the attention to detail!" – Kavya</div>
+        <div class="review-card">"Excellent service and friendly staff. Highly satisfied!" – Arjun</div>
+        <div class="review-card">"Corporate event looked spectacular. Great team!" – Sneha</div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Terms & Conditions -->
+            <div class="footer-column">
+                <h4>Terms & Conditions</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cancellation Policy</a></li>
+                    <li><a href="#">Booking Terms</a></li>
+                </ul>
+            </div>
+
+            <!-- Top Cities -->
+            <div class="footer-column">
+                <h4>Top Cities</h4>
+                <ul>
+                    <li>Mumbai</li>
+                    <li>Delhi</li>
+                    <li>Bangalore</li>
+                    <li>Chennai</li>
+                    <li>Kolkata</li>
+                </ul>
+            </div>
+
+            <!-- Client Reviews -->
+            <div class="footer-column">
+                <h4>Client Reviews</h4>
+                <div class="client-review">"Amazing decor! Made our wedding so special." – Priya</div>
+                <div class="client-review">"Professional and creative team. Highly recommend!" – Rohan</div>
+                <div class="client-review">"Birthday party was a hit thanks to Event Decor." – Ananya</div>
+            </div>
+
+            <!-- Social & Contact -->
+            <div class="footer-column">
+                <h4>Connect with Us</h4>
+                <div class="social-icons">
+                    <a href="https://wa.me/919876543210" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/yourpage" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/yourpage" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Event Decor Planner. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

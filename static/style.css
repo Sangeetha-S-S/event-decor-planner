@@ -1,0 +1,299 @@
+/* ---------------- BODY & GLOBAL ---------------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+section {
+    padding: 50px 20px;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 50px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.navbar nav a {
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #0056b3;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.hero {
+    background: url('../uploads/images/hero-bg.jpg') no-repeat center center/cover;
+    text-align: center;
+    padding: 120px 20px;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #ffb400;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.hero .buttons a {
+    padding: 12px 25px;
+    margin: 0 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* ---------------- BUTTONS ---------------- */
+.btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn.outline {
+    background-color: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+
+.btn.outline:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* ---------------- VIDEO SECTIONS (NEW) ---------------- */
+.video-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-section .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.video-section .overlay h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.video-section .overlay p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.video-section .overlay .btn {
+    background-color: #ffb400;
+    color: #000;
+}
+
+.video-section .overlay .btn:hover {
+    background-color: #e0a800;
+}
+
+/* ---------------- GALLERY ---------------- */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 280px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card .price {
+    color: #28a745;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* ---------------- FORMS ---------------- */
+.form {
+    background-color: #ffffff;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+.form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.form input,
+.form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.form button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* ---------------- FLASH MESSAGES ---------------- */
+.flash {
+    list-style: none;
+    padding: 10px;
+    max-width: 500px;
+    margin: 10px auto;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 5px;
+    border: 1px solid #c3e6cb;
+}
+
+/* ---------------- ADMIN LOGIN ---------------- */
+.login-box {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.login-box button {
+    width: 100%;
+}
+
+/* ---------------- ADMIN DASHBOARD ---------------- */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar nav {
+        margin-top: 10px;
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero h1,
+    .video-section .overlay h1 {
+        font-size: 36px;
+    }
+
+    .video-section .overlay p {
+        font-size: 16px;
+    }
+}

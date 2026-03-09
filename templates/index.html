@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sangeetha's Event Decor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">Event Decor</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('gallery') }}">Gallery</a>
+            <a href="{{ url_for('price') }}">Price</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>
+            <span class="blue">Sangeetha's</span><br>
+            Event Decor Idea Planner
+        </h1>
+        <p>Plan • Design • Celebrate Your Moments</p>
+
+        <div class="buttons">
+            <a href="{{ url_for('gallery') }}" class="btn">View Gallery</a>
+            <a href="{{ url_for('contact') }}" class="btn outline">Contact Us</a>
+        </div>
+    </section>
+
+</body>
+</html>
