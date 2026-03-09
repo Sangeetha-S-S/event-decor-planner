@@ -1,28 +1,23 @@
-CREATE DATABASE event_decor;
-USE event_decor;
-
--- Admin Table
-CREATE TABLE admin (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50),
-    password VARCHAR(50)
+-- Bookings Table (Updated for SQLite)
+CREATE TABLE IF NOT EXISTS bookings (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    phone TEXT,
+    address TEXT,
+    email TEXT,
+    event_type TEXT,
+    event_date TEXT,
+    message TEXT,
+    decor_image TEXT,
+    package_price INTEGER,
+    status TEXT DEFAULT 'Pending'
 );
 
-INSERT INTO admin VALUES (1,'admin','admin123');
-
--- Booking Table
-CREATE TABLE bookings (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    phone VARCHAR(15),
-    event_type VARCHAR(50),
-    event_date DATE,
+-- Contact Table
+CREATE TABLE IF NOT EXISTS contact_us (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT,
+    phone TEXT,
     message TEXT
-);
-
--- Media Table (Images & Videos)
-CREATE TABLE media (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    file_name VARCHAR(255),
-    file_type VARCHAR(20)
 );

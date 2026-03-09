@@ -1,37 +1,16 @@
 import sqlite3
+import os
 
-conn = sqlite3.connect("database.db")
-cursor = conn.cursor()
+def initialize():
+    connection = sqlite3.connect("database.db")
+    
+    # Read the updated SQL file
+    with open('database.sql') as f:
+        connection.executescript(f.read())
+        
+    connection.commit()
+    connection.close()
+    print("Database initialized with correct tables!")
 
-# Create bookings table
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS bookings (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    phone TEXT,
-    address TEXT,
-    email TEXT,
-    event_type TEXT,
-    event_date TEXT,
-    message TEXT,
-    decor_image TEXT,
-    package_price INTEGER,
-    status TEXT DEFAULT 'Pending'
-)
-""")
-
-# Create contact table
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS contact_us (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    email TEXT,
-    phone TEXT,
-    message TEXT
-)
-""")
-
-conn.commit()
-conn.close()
-
-print("Database created successfully")
+if __name__ == "__main__":
+    initialize()
